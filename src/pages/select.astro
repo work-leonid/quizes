@@ -1,0 +1,51 @@
+---
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/baselayout.astro";
+import Select from "../components/select.astro";
+---
+
+<Layout>
+  <div x-data="{goal: ''}">
+    <Logo />
+    <p class="text-center max-w-md hidden mx-auto mt-2 text-slate-600">
+      Take control of your goals. Track calories, break down ingredients, and
+      log activities with MyFitnessPal.
+    </p>
+    <h1 class="font-black max-w-md mx-auto text-3xl text-center mt-8">
+      Select your <span class="bg-amber-200">main goal</span>
+    </h1>
+    <div class="flex flex-col gap-1 mt-8 mb-8 text-center font-medium text-xl">
+      <Select title="Lose weight" id="lose" goal="lose" />
+      <Select title="Gain weight" id="gain" goal="gain" />
+      <Select title="Modify my diet" id="modify" goal="modify" />
+      <Select title="Increase activity" id="increase" goal="increase" />
+    </div>
+    <div class="flex gap-6">
+      <a
+        href="input"
+        class="aspect-square p-4 border border-slate-200 rounded-lg text-blue-500 inline-flex hover:scale-105 transition duration-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+        </svg>
+      </a>
+      <a
+        href="multiple"
+        x-text="goal === '' ? 'Please, select your goal' : 'Continue'"
+        :class=`goal === '' ? 'bg-slate-200 text-slate-400' : 'bg-blue-500 hover:bg-blue-600'`
+        class="transition text-center rounded-lg text-white py-4 px-8 duration-300 font-medium w-full"
+      ></a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import Back from "../components/back.astro";
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/baselayout.astro";
+---
+
+<Layout>
+  <div>
+    <Logo />
+    <h1 class="font-black max-w-md mx-auto text-3xl text-center mt-8">
+      Beautiful Landing
+    </h1>
+    <img
+      src="bubble-gum-success.png"
+      srcset="bubble-gum-success@2x.png 2x"
+      alt=""
+      class="mx-auto w-4/5"
+    />
+
+    <div class="flex gap-6 mt-20">
+      <Back link="multiple" />
+      <a
+        href="landing"
+        class="bg-blue-500 hover:bg-blue-600 transition text-center rounded-lg text-white py-4 px-8 duration-300 font-medium w-full"
+      >
+        Let do it!
+      </a>
+    </div>
+  </div>
+</Layout>

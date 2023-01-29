@@ -1,0 +1,67 @@
+---
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/baselayout.astro";
+---
+
+<Layout>
+  <div x-data="{ name: ''}">
+    <Logo />
+    <p class="text-center max-w-md hidden mx-auto mt-2 text-slate-600">
+      Take control of your goals. Track calories, break down ingredients, and
+      log activities with MyFitnessPal.
+    </p>
+    <p class="text-center mt-2"></p>
+    <div class="relative gap-4 mt-40 mb-8 font-medium text-xl">
+      <h1 class="font-black absolute -top-32 left-0 max-w-xs mx-auto text-3xl">
+        <template x-if="name.length == 0">
+          <span>What is your name?</span>
+        </template>
+        <template x-if="name.length > 0">
+          <span>
+            Nice to meet you, <span x-text="name"></span>
+          </span>
+        </template>
+      </h1>
+      <input
+        type="text"
+        name=""
+        id=""
+        x-model="name"
+        placeholder="Name"
+        class="px-4 isolate z-40 py-3 mr-20 rounded-md border border-slate-300 w-full"
+      />
+      <img
+        src="input-w.png"
+        srcset="input-w@2x.png 2x"
+        alt=""
+        class="absolute z-0 -top-44 -right-6"
+      />
+    </div>
+    <div class="flex gap-6">
+      <button
+        onclick="history.back()"
+        class="aspect-square p-4 border border-slate-200 rounded-lg text-blue-500 inline-flex hover:scale-105 transition duration-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+        </svg>
+      </button>
+      <a
+        href="select"
+        class="bg-blue-500 hover:bg-blue-600 transition text-center rounded-lg text-white py-4 px-8 hover:scale-105 duration-300 font-medium w-full"
+        >Continue</a
+      >
+    </div>
+  </div>
+</Layout>

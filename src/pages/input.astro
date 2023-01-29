@@ -1,0 +1,57 @@
+---
+import Back from "../components/back.astro";
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/baselayout.astro";
+---
+
+<Layout>
+  <div x-data="{ name: ''}">
+    <Logo />
+    <p class="text-center max-w-md hidden mx-auto mt-2 text-slate-600">
+      Take control of your goals. Track calories, break down ingredients, and
+      log activities with MyFitnessPal.
+    </p>
+    <p class="text-center mt-2"></p>
+    <div class="relative gap-4 mt-40 mb-8 font-medium text-xl">
+      <h1 class="font-black absolute -top-32 left-0 max-w-xs mx-auto text-3xl">
+        <template x-if="name.length == 0">
+          <span>What is your name?</span>
+        </template>
+        <template x-if="name.length > 0">
+          <span>
+            Nice to meet you, <span x-text="name"></span>
+          </span>
+        </template>
+      </h1>
+      <input
+        type="text"
+        name=""
+        id=""
+        x-model="name"
+        placeholder="Name"
+        class="px-4 isolate z-40 py-3 mr-20 rounded-md border border-slate-300 w-full"
+      />
+      <img
+        src="input.png"
+        srcset="input@2x.png 2x"
+        alt=""
+        class="absolute z-0 -top-36 -right-6"
+      />
+    </div>
+    <div class="flex gap-6">
+      <Back link="/" />
+
+      <a
+        href="multiple"
+        x-text="selectedHolidays.length < 2 ? 'Please, select your goal' : 'Continue'"
+        :class=`selectedHolidays.length < 2 ? 'bg-slate-200 text-slate-400' : 'bg-blue-500 hover:bg-blue-600'`
+        class="transition text-center rounded-lg text-white py-4 px-8 duration-300 font-medium w-full"
+      ></a>
+      <a
+        href="select"
+        class="bg-blue-500 hover:bg-blue-600 transition text-center rounded-lg text-white py-4 px-8 hover:scale-105 duration-300 font-medium w-full"
+        >Continue</a
+      >
+    </div>
+  </div>
+</Layout>
